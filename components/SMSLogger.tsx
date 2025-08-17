@@ -15,7 +15,7 @@ export default function SMSLogger() {
       const response = await fetch('/api/messages');
       const data = await response.json();
       setMessages(data);
-    } catch (error) {
+    } catch (error) { 
       console.error('Error fetching messages:', error);
     } finally {
       setIsLoading(false);

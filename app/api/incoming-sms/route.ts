@@ -26,13 +26,14 @@ export async function POST(request: NextRequest) {
       ? `https://${process.env.VERCEL_URL}` 
       : 'http://localhost:3000';
     
-    await fetch(`${baseUrl}/api/messages`, { 
+    await fetch(`${baseUrl}/api/messages`, {  
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(messageData), 
     });
 
     return new NextResponse('OK', { status: 200 });
+    
   } catch (error) {
     console.error('Error processing incoming SMS:', error);
     return NextResponse.json(
